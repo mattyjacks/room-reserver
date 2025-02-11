@@ -49,16 +49,22 @@ export default function RoomCalendar() {
     const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
     return (
-      <Box sx={{ mb: 4 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
-          <Button onClick={handlePrevMonth} sx={{ minWidth: 'auto', color: '#1976d2' }}>←</Button>
-          <Typography variant="h6" sx={{ textTransform: 'uppercase', fontWeight: 500, color: '#1976d2' }}>
+      <Box sx={{ mb: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 1 }}>
+          <Button onClick={handlePrevMonth} sx={{ minWidth: '30px', px: 0.5, color: '#1976d2' }}>←</Button>
+          <Typography variant="h6" sx={{ mx: 1, textTransform: 'uppercase', fontWeight: 500, color: '#1976d2' }}>
             {format(selectedDate, 'MMMM yyyy')}
           </Typography>
-          <Button onClick={handleNextMonth} sx={{ minWidth: 'auto', color: '#1976d2' }}>→</Button>
+          <Button onClick={handleNextMonth} sx={{ minWidth: '30px', px: 0.5, color: '#1976d2' }}>→</Button>
         </Box>
         
-        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 0.5 }}>
+        <Box sx={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(7, 1fr)', 
+          gap: 0.5, 
+          maxWidth: '400px',
+          margin: '0 auto'
+        }}>
           {weekDays.map(day => (
             <Box key={day} sx={{ 
               textAlign: 'center', 
@@ -117,7 +123,7 @@ export default function RoomCalendar() {
     <Box sx={{ maxWidth: '100%', margin: '0 auto', p: 3 }}>
       {renderCalendar()}
 
-      <Box sx={{ display: 'flex', gap: 1, mb: 2, alignItems: 'center' }}>
+      <Box sx={{ display: 'flex', gap: 1, mb: 3, alignItems: 'center', justifyContent: 'center' }}>
         <Box sx={{ width: 16, height: 16, bgcolor: '#c8e6c9', border: '1px solid #e0e0e0' }} />
         <Typography variant="body2" sx={{ mr: 2, fontSize: '0.75rem' }}>available</Typography>
         
@@ -131,12 +137,21 @@ export default function RoomCalendar() {
         <Typography variant="body2" sx={{ fontSize: '0.75rem' }}>closed</Typography>
       </Box>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', px: 2 }}>
+        <TimeGrid
+          key="time-labels"
+          date={selectedDate}
+          roomName=""
+          showTimeLabels={true}
+        />
         {ROOMS.map(room => (
           <TimeGrid
             key={room.id}
             date={selectedDate}
             roomName={room.name}
+            onRoomClick={() => {
+              console.log('Room clicked:', room.name);
+            }}
             onSelectionChange={(slots) => {
               console.log('Selected slots for', room.name, slots);
             }}

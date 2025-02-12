@@ -26,6 +26,10 @@ import LibraryRoomCalendar from './LibraryRoomCalendar';
 import CompactListCalendar from './CompactListCalendar';
 import ModernCardCalendar from './ModernCardCalendar';
 import TimelineCalendar from './TimelineCalendar';
+import DarkTimelineCalendar from './DarkTimelineCalendar';
+import ForestTimelineCalendar from './ForestTimelineCalendar';
+import OceanTimelineCalendar from './OceanTimelineCalendar';
+import SunsetTimelineCalendar from './SunsetTimelineCalendar';
 
 const CALENDARS = [
   {
@@ -57,6 +61,30 @@ const CALENDARS = [
     name: 'Timeline View',
     component: TimelineCalendar,
     description: 'Horizontal timeline with color-coded rooms. Perfect for visualizing availability across multiple rooms.'
+  },
+  {
+    id: 'dark-timeline',
+    name: 'Dark Timeline',
+    component: DarkTimelineCalendar,
+    description: 'Sleek dark-themed timeline perfect for low-light environments and modern aesthetics.'
+  },
+  {
+    id: 'forest-timeline',
+    name: 'Forest Timeline',
+    component: ForestTimelineCalendar,
+    description: 'Nature-inspired green theme with a fresh and calming appearance.'
+  },
+  {
+    id: 'ocean-timeline',
+    name: 'Ocean Timeline',
+    component: OceanTimelineCalendar,
+    description: 'Coastal-themed timeline with refreshing blue tones and wave-like elements.'
+  },
+  {
+    id: 'sunset-timeline',
+    name: 'Sunset Timeline',
+    component: SunsetTimelineCalendar,
+    description: 'Warm and inviting timeline with sunset-inspired orange and amber hues.'
   }
 ];
 

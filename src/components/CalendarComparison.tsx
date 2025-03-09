@@ -33,6 +33,12 @@ import SunsetTimelineCalendar from './SunsetTimelineCalendar';
 
 const CALENDARS = [
   {
+    id: 'dark-timeline',
+    name: 'Dark Timeline ⭐',
+    component: DarkTimelineCalendar,
+    description: 'Sleek dark-themed timeline perfect for low-light environments and modern aesthetics.'
+  },
+  {
     id: 'grid',
     name: 'Classic Grid',
     component: RoomCalendar,
@@ -61,12 +67,6 @@ const CALENDARS = [
     name: 'Timeline View',
     component: TimelineCalendar,
     description: 'Horizontal timeline with color-coded rooms. Perfect for visualizing availability across multiple rooms.'
-  },
-  {
-    id: 'dark-timeline',
-    name: 'Dark Timeline',
-    component: DarkTimelineCalendar,
-    description: 'Sleek dark-themed timeline perfect for low-light environments and modern aesthetics.'
   },
   {
     id: 'forest-timeline',
